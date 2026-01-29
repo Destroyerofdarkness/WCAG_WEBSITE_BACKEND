@@ -1,0 +1,7 @@
+const router = require("express").Router();
+
+const controller = require("../controllers/default_controllers.js")
+
+router.get("/get-cats", controller.send_out_cats)
+
+module.exports = router
