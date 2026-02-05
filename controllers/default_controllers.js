@@ -15,6 +15,17 @@ const send_out_cats = async(req,res)=>{
     }
 }
 
+const send_cat_info = async(req,res)=>{
+    try{
+        const cat = await Cat.findCat(req.params.name)
+        res.status(201).json({cat})
+    }catch(err){
+        console.log(err)
+        res.status(500).send(err)
+    }
+}
+
 module.exports = {
-    send_out_cats
+    send_out_cats,
+    send_cat_info
 }

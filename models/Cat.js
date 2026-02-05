@@ -17,6 +17,12 @@ const catSchema = new Schema({
     }
 })
 
+catSchema.statics.findCat = async(name)=>{
+    const cat = await Cat.findOne({name:name});
+    return cat;
+}
+
+
 const Cat = model("cats", catSchema)
 
 module.exports = Cat
